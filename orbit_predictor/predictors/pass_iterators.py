@@ -178,7 +178,7 @@ class LocationPredictor(BaseLocationPredictor):
         end = tca
         start = tca - self._orbit_step(0.34)  # On third of the orbit
         elevation = self._elevation_at(start)
-        assert elevation < 0
+        # assert elevation < 0
         while not self._precision_reached(start, end):
             midpoint = self.midpoint(start, end)
             elevation = self._elevation_at(midpoint)
