@@ -1,3 +1,5 @@
+from orbit_predictor.sources import EtcTLESource
+
 class BaseElevationAPI:
     def get_elevation(self, *, longitude, latitude):
         raise NotImplementedError
@@ -22,3 +24,5 @@ class ZeroElevation(BaseElevationAPI):
 def compute_groundtrack(predictor, times, elevation_api=ZeroElevation()):
     positions = [predictor.get_position(time) for time in times]
     return elevation_api.get_groundtrack(positions)
+
+

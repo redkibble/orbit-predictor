@@ -119,6 +119,38 @@ class HighAccuracyTLEPredictor(CartesianPredictor):
             self._propagator.no_kozai, self._propagator.ecco, self._propagator.inclo, wgs84
         )
 
+    @property
+    def inclination(self):
+        return self._propagator.inclo
+    
+    @property
+    def noradid(self):
+        return self._propagator.satnum
+    
+    @property
+    def eccentricity(self):
+        return self._propagator.ecco
+
+    
+    @property
+    def raan(self):
+        return self._propagator.nodeo
+
+    
+    @property
+    def inclination(self):
+        return self._propagator.inclo
+    
+    
+    @property
+    def meananomaly(self):
+        return self._propagator.mo
+    
+    @property
+    def argperigee(self):
+        return self._propagator.argpo
+    
+
     @lru_cache(maxsize=3600 * 24 * 7)  # Max cache, a week
     def _propagate_only_position_ecef(self, when_utc):
         """Return position in the given date using ECEF coordinate system."""
